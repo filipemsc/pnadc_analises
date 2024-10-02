@@ -44,6 +44,12 @@ txt_to_download <- db_files$final[!db_files$final %in% ls_txt]
 
 db_queue <- db_files[db_files$final %in% txt_to_download,]
 
-if(length(db_queue$link) > 0) curl::multi_download(urls = db_queue$link, destfiles = db_queue$dest)
+if(length(db_queue$link) > 0) download <- curl::multi_download(urls = db_queue$link, destfiles = db_queue$dest)
+
+download$dest <- db_queue$dest 
+
+result <- unname(unlist(download[download$success == TRUE,"dest"]))
+
+return(result)
 
 }

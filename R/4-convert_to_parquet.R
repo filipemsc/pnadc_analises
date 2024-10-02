@@ -2,7 +2,7 @@ convert_to_parquet <- function(files, vars = NULL){
   
   txt_files <- files
   
-  vars <- NULL
+  vars <- vars
   
   if(length(txt_files)>0){
   
@@ -25,11 +25,23 @@ convert_to_parquet <- function(files, vars = NULL){
     
     parquet_file <- gsub("txt", "parquet", txt) 
     
+    if(is.null(vars)){
     data_pnadc <- readr::read_fwf(txt,
                              col_positions = readr::fwf_widths(widths = input$length, col_names = input$col_name),
                              col_types = readr::cols(.default = "c"))
     
     data_pnadc$ID_DOMICILIO <- paste0(data_pnadc$UPA, data_pnadc$V1008, data_pnadc$V1014)
+    
+    }
+    
+    if(!is.null(vars)){
+      
+      data_pnadc <- readr::read_fwf(txt,
+                                    col_positions = readr::fwf_widths(widths = input$length, col_names = input$col_name),
+                                    col_types = readr::cols(.default = "c"),
+                                    col_select = vars)
+      
+    }
     
     arrow::write_parquet(data_pnadc, parquet_file)
     
