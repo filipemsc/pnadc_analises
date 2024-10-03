@@ -15,5 +15,10 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   greet:
+
+  steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ inputs.name }}"
     # The type of runner that the job will run on
     runs-on: self-hosted
