@@ -3,8 +3,6 @@ library(tarchetypes)
 
 tar_source()
 
-vars_to_select <- NULL # select all varaibles
-
 list(
   tar_target(
     name = zip_files,
