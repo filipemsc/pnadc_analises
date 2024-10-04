@@ -76,3 +76,9 @@ url|object|f14bb7c35abf9042|||||||||||||||
 x|object|58996af91c9aa44b|||||||||||||||
 year|object|be7158fb2a3aa7d6|||||||||||||||
 zip_files|stem|b914a03c8f164dd6|4013754addf64b42|e1472e4c12f306f4|1159902730||t19998.9702840549s|ba51273727d9db07|90|rds|local|vector|||35.735||
+unzip_txt|function|0c66169052b944f8
+x|object|08d5f59e833de599
+download_data|function|651093b744795f22
+convert_to_parquet|function|667b51da0d9f69e5
+zip_files|stem|bf04f7211db87360|4013754addf64b42|e1472e4c12f306f4|1159902730||t20000.5369559828s|1585a292a20e5533|236|rds|local|vector|||309.03||
+txt_files|stem|ff831a824ef1b42c|14fdb1385b01a395|3fce5fb76091a4a2|-306136416||t20000.5459884907s|bdc53509363bb091|209|rds|local|vector|||780.35||
